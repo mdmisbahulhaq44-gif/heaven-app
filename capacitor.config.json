@@ -9,6 +9,6 @@
     "allowNavigation": ["heaven-bd.vercel.app"]
   },
   "plugins": {
-    "SystemBars": { "insetsHandling": "css", "style": "LIGHT", "hidden": true }
+    "SystemBars": { "insetsHandling": "css", "style": "LIGHT" }
   }
 }
