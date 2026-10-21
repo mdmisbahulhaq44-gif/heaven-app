@@ -2,17 +2,13 @@
   "appId": "com.heavenbd.app",
   "appName": "HEAVEN",
   "webDir": "www",
+  "backgroundColor": "#ffffff",
   "server": {
     "url": "https://heaven-bd.vercel.app",
     "androidScheme": "https",
     "allowNavigation": ["heaven-bd.vercel.app"]
   },
   "plugins": {
-    "SystemBars": { "insetsHandling": "disable", "style": "DARK" },
-    "EdgeToEdge": {
-      "backgroundColor": "#ffffff",
-      "statusBarColor": "#ffffff",
-      "navigationBarColor": "#ffffff"
-    }
+    "SystemBars": { "insetsHandling": "css", "style": "DARK" }
   }
 }
