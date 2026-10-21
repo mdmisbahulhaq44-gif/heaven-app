@@ -1,0 +1,11 @@
+{
+  "name": "heaven-app",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@capacitor/android": "^8.4.0",
+    "@capacitor/cli": "^8.4.0",
+    "@capacitor/core": "^8.4.0",
+    "@capawesome/capacitor-android-edge-to-edge-support": "^8.0.0"
+  }
+}
