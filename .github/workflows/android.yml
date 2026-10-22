@@ -23,7 +23,7 @@ jobs:
           mkdir -p assets
           curl -L -o assets/logo.png https://heaven-bd.vercel.app/icon-512.png
           npx --yes @capacitor/assets generate --android --iconBackgroundColor '#ffffff' --iconBackgroundColorDark '#ffffff' --splashBackgroundColor '#ffffff' --splashBackgroundColorDark '#ffffff'
-      - run: npx cap sync android
+      - run: bash patch-native.sh && npx cap sync android
       - run: cd android && chmod +x gradlew && ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
         with:
