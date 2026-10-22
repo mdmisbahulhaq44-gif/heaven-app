@@ -9,6 +9,7 @@
     "allowNavigation": ["heaven-bd.vercel.app"]
   },
   "plugins": {
-    "SystemBars": { "insetsHandling": "css", "style": "LIGHT" }
+    "SystemBars": { "insetsHandling": "css", "style": "LIGHT" },
+    "SplashScreen": { "launchShowDuration": 5000, "launchAutoHide": true, "launchFadeOutDuration": 300, "backgroundColor": "#ffffff", "showSpinner": false }
   }
 }
