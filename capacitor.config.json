@@ -6,7 +6,8 @@
   "server": {
     "url": "https://heaven-bd.vercel.app",
     "androidScheme": "https",
-    "allowNavigation": ["heaven-bd.vercel.app"]
+    "allowNavigation": ["heaven-bd.vercel.app"],
+    "errorPath": "offline.html"
   },
   "plugins": {
     "SystemBars": { "insetsHandling": "css", "style": "LIGHT" },

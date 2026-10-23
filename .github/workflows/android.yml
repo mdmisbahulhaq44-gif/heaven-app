@@ -3,6 +3,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,7 +31,14 @@ jobs:
           KS: ${{ secrets.DEBUG_KEYSTORE_B64 }}
         run: mkdir -p ~/.android && echo "$KS" | base64 -d > ~/.android/debug.keystore
       - run: cd android && chmod +x gradlew && ./gradlew assembleDebug
+      - run: cp android/app/build/outputs/apk/debug/app-debug.apk HEAVEN.apk
       - uses: actions/upload-artifact@v4
         with:
           name: HEAVEN-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
+      - name: Publish release (permanent download link for in-app update)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ github.run_number }}
+          name: HEAVEN v${{ github.run_number }}
+          files: HEAVEN.apk
