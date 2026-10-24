@@ -6,7 +6,7 @@
   "server": {
     "url": "https://heaven-bd.vercel.app",
     "androidScheme": "https",
-    "allowNavigation": ["heaven-bd.vercel.app"],
+    "allowNavigation": ["heaven-bd.vercel.app", "*.paymently.io", "*.bkash.com", "*.nagad.com.bd", "*.sslcommerz.com"],
     "errorPath": "offline.html"
   },
   "plugins": {
