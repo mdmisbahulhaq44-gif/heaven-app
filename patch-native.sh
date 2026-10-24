@@ -7,12 +7,14 @@ package com.heavenbd.app;
 
 import android.os.Bundle;
 import android.view.View;
+import android.graphics.Color;
 import com.getcapacitor.BridgeActivity;
 
 public class MainActivity extends BridgeActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().getDecorView().setBackgroundColor(Color.WHITE);
     }
 
     @Override

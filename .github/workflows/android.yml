@@ -31,7 +31,7 @@ jobs:
           KS: ${{ secrets.DEBUG_KEYSTORE_B64 }}
         run: mkdir -p ~/.android && echo "$KS" | base64 -d > ~/.android/debug.keystore
       - run: cd android && chmod +x gradlew && ./gradlew assembleDebug
-      - run: cp android/app/build/outputs/apk/debug/app-debug.apk HEAVEN.apk
+      - run: cp android/app/build/outputs/apk/debug/app-debug.apk HEAVEN.apk && zip HEAVEN.zip HEAVEN.apk
       - uses: actions/upload-artifact@v4
         with:
           name: HEAVEN-apk
@@ -41,4 +41,6 @@ jobs:
         with:
           tag_name: v${{ github.run_number }}
           name: HEAVEN v${{ github.run_number }}
-          files: HEAVEN.apk
+          files: |
+            HEAVEN.apk
+            HEAVEN.zip
