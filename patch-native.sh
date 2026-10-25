@@ -8,6 +8,7 @@ package com.heavenbd.app;
 import android.os.Bundle;
 import android.view.View;
 import android.graphics.Color;
+import android.webkit.WebSettings;
 import com.getcapacitor.BridgeActivity;
 
 public class MainActivity extends BridgeActivity {
@@ -21,6 +22,9 @@ public class MainActivity extends BridgeActivity {
     public void onStart() {
         super.onStart();
         getBridge().getWebView().setOverScrollMode(View.OVER_SCROLL_NEVER);
+        getBridge().getWebView().setBackgroundColor(Color.WHITE);
+        getBridge().getWebView().getSettings().setForceDark(WebSettings.FORCE_DARK_OFF);
+        getWindow().setStatusBarColor(Color.WHITE);
     }
 }
 JAVA
