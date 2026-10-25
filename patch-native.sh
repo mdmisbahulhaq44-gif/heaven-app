@@ -37,3 +37,5 @@ sed -i 's#<application#<uses-permission android:name="android.permission.CAMERA"
 N="${GITHUB_RUN_NUMBER:-1}"
 sed -i "s/versionCode [0-9]*/versionCode $N/; s/versionName \"[^\"]*\"/versionName \"1.$N\"/" android/app/build.gradle
 grep -n "versionCode\|versionName" android/app/build.gradle || true
+# sign the debug build with our permanent key (explicit path, not ~/.android)
+sed -i '0,/^android {/s#^android {#android {\n    signingConfigs {\n        debug {\n            storeFile file("heaven.keystore")\n            storePassword "android"\n            keyAlias "androiddebugkey"\n            keyPassword "android"\n        }\n    }#' android/app/build.gradle
