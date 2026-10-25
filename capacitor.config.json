@@ -11,6 +11,6 @@
   },
   "plugins": {
     "SystemBars": { "insetsHandling": "css", "style": "LIGHT" },
-    "SplashScreen": { "launchShowDuration": 5000, "launchAutoHide": true, "launchFadeOutDuration": 300, "backgroundColor": "#ffffff", "showSpinner": false }
+    "SplashScreen": { "launchShowDuration": 15000, "launchAutoHide": true, "launchFadeOutDuration": 300, "backgroundColor": "#ffffff", "showSpinner": false }
   }
 }
