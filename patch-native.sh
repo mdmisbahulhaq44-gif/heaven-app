@@ -31,6 +31,29 @@ public class MainActivity extends BridgeActivity {
         super.onCreate(savedInstanceState);
         getWindow().getDecorView().setBackgroundColor(Color.WHITE);
         getBridge().getWebView().addJavascriptInterface(new Updater(), "HeavenUpdater");
+        openLink(getIntent());
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        openLink(intent);
+    }
+
+    // a heaven-bd.vercel.app link (for example a friend's invite link) opens inside the app, on that page
+    private void openLink(Intent intent) {
+        try {
+            if (intent == null || intent.getData() == null) return;
+            Uri d = intent.getData();
+            if (!"https".equals(d.getScheme()) || !"heaven-bd.vercel.app".equals(d.getHost())) return;
+            String path = d.getPath();
+            boolean root = path == null || path.length() == 0 || "/".equals(path);
+            if (root && d.getQuery() == null) return;
+            final String url = d.toString();
+            getBridge().getWebView().post(new Runnable() {
+                public void run() { getBridge().getWebView().loadUrl(url); }
+            });
+        } catch (Exception e) {}
     }
 
     @Override
