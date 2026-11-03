@@ -151,7 +151,6 @@ public class MainActivity extends BridgeActivity {
 }
 JAVA
 M=android/app/src/main/AndroidManifest.xml
-sed -i '0,/<\/activity>/s#</activity>#        <intent-filter android:autoVerify="true"><action android:name="android.intent.action.VIEW" /><category android:name="android.intent.category.DEFAULT" /><category android:name="android.intent.category.BROWSABLE" /><data android:scheme="https" android:host="heaven-bd.vercel.app" /></intent-filter>\n        </activity>#' "$M"
 sed -i 's#<application#<uses-permission android:name="android.permission.CAMERA" />\n    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />\n    <application#' "$M"
 N="${GITHUB_RUN_NUMBER:-1}"
 sed -i "s/versionCode [0-9]*/versionCode $N/; s/versionName \"[^\"]*\"/versionName \"1.$N\"/" android/app/build.gradle
